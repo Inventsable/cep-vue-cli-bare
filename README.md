@@ -1,4 +1,10 @@
-# cep-vue-cli-basic
+# cep-vue-cli-bare
+
+---
+
+## DEPRECATED 07/08/19 -- Generator now uses [bare2x](https://github.com/Inventsable/cep-vue-cli-bare2x)
+
+---
 
 ## Template used in [generator-cep-vue-cli](https://github.com/Inventsable/generator-cep-vue-cli)
 
@@ -127,6 +133,15 @@ For the most part, you don't need to alter or modify any file/folder not shown b
 ---
 
 ## Common errors:
+
+### require is not a function/defined
+
+- If wanting to use `require()` or `process` in both Developer and Production, you need to assign them manually in each .vue file (due to being nested in an iframe) like so:
+
+```js
+const require = cep_node.require || require;
+const fs = require("fs"); // Now available in both
+```
 
 ### Panel is not updating
 
